@@ -43,9 +43,11 @@ class WebScraper:
     '''
 
     @staticmethod
-    def get_single_table_pandas(main_url):
+    def get_single_table_pandas(main_url, class_name=None):
         soup = WebScraper.get_soup(main_url)
-        td = soup.find("td", {"class": "table-top"})
+        if not class_name:
+            class_name = "table-top"
+        td = soup.find("td", {"class": class_name})
         if td is None:
             return soup, pd.DataFrame()
         main_table_rows = td.find_parent("table").find_all("tr")

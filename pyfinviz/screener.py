@@ -1880,4 +1880,4 @@ class Screener:
 
         for page_number in pages:
             url_ = self.main_url + Screener.page_number(page_number)
-            self.soups[page_number], self.data_frames[page_number] = WebScraper.get_single_table_pandas(url_)
+            self.soups[page_number], self.data_frames[page_number] = WebScraper.get_single_table_pandas(url_, "screener-table")
